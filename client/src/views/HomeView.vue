@@ -1,9 +1,12 @@
 <script >
 import Article from '@/components/Article.vue'
+import TheWelcome from '@/components/TheWelcome.vue'
 export default {
   components: {
-    Article
+    Article,
+
   },
+
   data() {
     return {
       count: 0
@@ -18,9 +21,14 @@ export default {
 </script>
 
 <template>
-  <main>
+<div class>
 
-    <button type= "button" @click="onClick">count : {{ count }}</button>
+</div>
+
+  <div class = "">
     <Article/>
-  </main>
+    <Article/>
+  <Article/>
+  </div>
+
 </template>
