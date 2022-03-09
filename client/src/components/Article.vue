@@ -1,12 +1,13 @@
 <template>
 
-  <div class ="box">
+  <div class ="Titulek">
     <h3>Titulek</h3>
-
-      <img src="https://picsum.photos/150/150">
-
-
-    <span><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Fusce consectetuer risus a nunc. Cras pede libero, t harum quidem rerum facilis est et expedita distinctio. Integer tempor. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Morbi imperdiet, mauris ac auctor dictum, nisl ligula egestas nulla, et sollicitudin sem purus in lacus. Duis risus. Suspendisse sagittis ultrices augue. Nullam at arcu a est sollicitudin euismod. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non </p>
+    </div>
+  <div class ="Obrazek">
+      <img src="https://picsum.photos/200/200">
+  </div>
+  <div class ="par">
+    <span><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Fusce consectetuer risus a nunc. Cras pede libero, t harum quidem rerum facilis est et expedita distinctio. Integer tempor. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Morbi imperdiet, mauris ac auctor dictum, nisl ligula egestas nulla, et sollicitudin sem purus in lacus. </p>
 </span>
   </div>
 </template>
@@ -18,5 +19,25 @@ export default {
 </script>
 
 <style scoped>
+
+
+.Titulek {
+
+  display: flex;
+  align-items: center;
+  background-color: lightgray;
+}
+.Obrazek{
+
+  float:left;
+}
+.par {
+
+  display: flex;
+  background-color: lightgray;
+  max-height: 200px;
+  margin-bottom: 10%;
+}
+
 
 </style>
