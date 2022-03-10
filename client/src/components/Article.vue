@@ -1,7 +1,8 @@
 <template>
 
   <div class ="Titulek">
-    <h3>Titulek</h3>
+
+    <RouterLink to="/FullArticle"><h3>Titulek</h3></RouterLink>
     </div>
   <div class ="Obrazek">
       <img src="https://picsum.photos/200/200">
