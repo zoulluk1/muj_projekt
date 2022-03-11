@@ -1,15 +1,20 @@
 <template>
 
-  <div class ="Titulek">
+  <div class="card mb-3" style="max-width: 540px;max-height: 600px ">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="https://picsum.photos/600/600" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Titulek</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 
-    <RouterLink to="/FullArticle"><h3>Titulek</h3></RouterLink>
+          <a href="/FullArticle" class="btn btn-primary">Zobrazit celý článek</a>
+        </div>
+      </div>
     </div>
-  <div class ="Obrazek">
-      <img src="https://picsum.photos/200/200">
-  </div>
-  <div class ="par">
-    <span><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Fusce consectetuer risus a nunc. Cras pede libero, t harum quidem rerum facilis est et expedita distinctio. Integer tempor. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Morbi imperdiet, mauris ac auctor dictum, nisl ligula egestas nulla, et sollicitudin sem purus in lacus. </p>
-</span>
   </div>
 </template>
 
@@ -20,25 +25,6 @@ export default {
 </script>
 
 <style scoped>
-
-
-.Titulek {
-
-  display: flex;
-  align-items: center;
-  background-color: lightgray;
-}
-.Obrazek{
-
-  float:left;
-}
-.par {
-
-  display: flex;
-  background-color: lightgray;
-  max-height: 200px;
-  margin-bottom: 10%;
-}
 
 
 </style>

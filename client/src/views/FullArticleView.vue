@@ -1,10 +1,10 @@
 <template>
-  <div></div>
-  <div class ="Titulek">
+
+  <div class ="Card">
     <h3>Titulek</h3>
-  </div>
+
     <p> </p>
-  <div class="car">
+
     <h5>Podtitulek</h5>
     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus et lorem id felis nonummy placerat. Aliquam in lorem sit amet leo accumsan lacinia. Fusce tellus odio, dapibus id fermentum quis, suscipit id erat. Cras pede libero, dapibus nec, pretium sit amet, tempor quis. Duis bibendum, lectus ut viverra rhoncus, dolor nunc faucibus libero, eget facilisis enim ipsum id lacus. Etiam ligula pede, sagittis quis, interdum ultricies, scelerisque eu. Donec iaculis gravida nulla. Suspendisse sagittis ultrices augue. In enim a arcu imperdiet malesuada. Aliquam erat volutpat. Phasellus faucibus molestie nisl. Praesent id justo in neque elementum ultrices. Nullam faucibus mi quis velit. Maecenas aliquet accumsan leo. Phasellus faucibus molestie nisl. Duis condimentum augue id magna semper rutrum. Ut tempus purus at lorem. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Etiam neque.</p>
     <h5>Podtitulek2</h5>
