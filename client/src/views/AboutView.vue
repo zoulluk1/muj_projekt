@@ -1,7 +1,8 @@
 <template>
-<div></div>
+ <div></div>
 
-    <div class = "About">
+
+      <div class="container p-3 my-3 bg-dark text-white">
       <h1>O mě</h1>
 
 
@@ -21,7 +22,8 @@
 </template>
 
 <style>
-/*@media (min-width: 1024px) {
+
+@media (min-width: 1024px) {
   .about {
     min-height: 20vh;
     display: flex;
@@ -30,5 +32,5 @@
   .blog{
     align-items: center;
   }
-}*/
+}
 </style>

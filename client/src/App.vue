@@ -9,10 +9,12 @@ import HelloWorld from '@/components/HelloWorld.vue'
 
 
     <div class="wrapper">
+
       <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
       <HelloWorld msg="Blog" />
 
       <nav>
+
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/contats">Contats</RouterLink>
@@ -108,9 +110,11 @@ nav a:first-of-type {
 
   .logo {
     margin: 0 2rem 0 0;
+
   }
 
   nav {
+
     text-align: left;
     margin-left: -1rem;
     font-size: 1rem;
