@@ -2,16 +2,17 @@
 
   <div class="card mb-3" style="max-width: 540px;max-height: 600px ">
     <div class="row g-0">
-      <div class="col-md-4">
-        <img src="https://picsum.photos/600/600" class="img-fluid rounded-start" alt="...">
+      <div class="col-xl-3 col-lg-4">
+        <img :src="image" alt="" class="card-img img-fluid p-1">
       </div>
-      <div class="col-md-8">
+      <div class="col-xl-9 col-lg-8">
         <div class="card-body">
-          <h5 class="card-title">Titulek</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <h4 class="card-title">{{ title }} {{id}}</h4>
+          <h6 class="card-subtitle">{{ formattedDate }}</h6>
+          <p class="card-text text-truncate">{{text}}</p>
 
-          <a href="/FullArticle" class="btn btn-primary">Zobrazit celý článek</a>
+
+          <router-link :to="`/FullArticle/${id}`" class="btn btn-primary">Zobrazit celý článek</router-link>
         </div>
       </div>
     </div>
@@ -20,7 +21,20 @@
 
 <script>
 export default {
-  name: "Article"
+  name: "Article",
+  props: {
+    id: Number,
+    title: String,
+    date: Date,
+    text: String,
+    image: String
+  },
+  computed: {
+    formattedDate() {
+      return this.date.toLocaleDateString()
+    }
+  }
+
 }
 </script>
 

@@ -1,20 +1,14 @@
 <template>
 
-  <div class ="Card">
-    <h3>Titulek</h3>
+  <div class ="row">
+    <div class="col-md-6 offset-md-3 p-5 bg-light">
+      <h3>{{ article.title }} #{{article.id}}</h3>
+      <h6>{{ formattedDate }}</h6>
+      <img :src="article.image" alt="" class="card-img img-fluid p-1">
+      <p v-html="article.text"></p>
 
-    <p> </p>
 
-    <h5>Podtitulek</h5>
-    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus et lorem id felis nonummy placerat. Aliquam in lorem sit amet leo accumsan lacinia. Fusce tellus odio, dapibus id fermentum quis, suscipit id erat. Cras pede libero, dapibus nec, pretium sit amet, tempor quis. Duis bibendum, lectus ut viverra rhoncus, dolor nunc faucibus libero, eget facilisis enim ipsum id lacus. Etiam ligula pede, sagittis quis, interdum ultricies, scelerisque eu. Donec iaculis gravida nulla. Suspendisse sagittis ultrices augue. In enim a arcu imperdiet malesuada. Aliquam erat volutpat. Phasellus faucibus molestie nisl. Praesent id justo in neque elementum ultrices. Nullam faucibus mi quis velit. Maecenas aliquet accumsan leo. Phasellus faucibus molestie nisl. Duis condimentum augue id magna semper rutrum. Ut tempus purus at lorem. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Etiam neque.</p>
-    <h5>Podtitulek2</h5>
-    <p>Aenean placerat. Nullam feugiat, turpis at pulvinar vulputate, erat libero tristique tellus, nec bibendum odio risus sit amet ante. Nullam eget nisl. Maecenas libero. Ut tempus purus at lorem. Nulla accumsan, elit sit amet varius semper, nulla mauris mollis quam, tempor suscipit diam nulla vel leo. Proin pede metus, vulputate nec, fermentum fringilla, vehicula vitae, justo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Maecenas libero. Fusce consectetuer risus a nunc. Vivamus luctus egestas leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur bibendum justo non orci. Nullam sit amet magna in magna gravida vehicula. Aliquam erat volutpat. Curabitur bibendum justo non orci. Aenean vel massa quis mauris vehicula lacinia. Aliquam ornare wisi eu metus.</p>
-    <img src="https://picsum.photos/800/800">
-    <p>Vivamus porttitor turpis ac leo. In convallis. Fusce wisi. Phasellus faucibus molestie nisl. Sed convallis magna eu sem. Curabitur sagittis hendrerit ante. In enim a arcu imperdiet malesuada. Nunc auctor. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
-    <h5>Podtitulek3</h5>
-    <p>Proin pede metus, vulputate nec, fermentum fringilla, vehicula vitae, justo. Maecenas libero. Fusce suscipit libero eget elit. Curabitur bibendum justo non orci. Etiam bibendum elit eget erat. Etiam ligula pede, sagittis quis, interdum ultricies, scelerisque eu. Curabitur bibendum justo non orci. Mauris tincidunt sem sed arcu. Nunc tincidunt ante vitae massa. Maecenas libero. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Quisque porta. Donec ipsum massa, ullamcorper in, auctor et, scelerisque sed, est. Nam quis nulla. Nullam eget nisl.</p>
-    <img src="https://picsum.photos/800/500">
-    <p>Nullam at arcu a est sollicitudin euismod. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam quis quam. Pellentesque pretium lectus id turpis. Duis ante orci, molestie vitae vehicula venenatis, tincidunt ac pede. Curabitur ligula sapien, pulvinar a vestibulum quis, facilisis vel sapien. Fusce tellus odio, dapibus id fermentum quis, suscipit id erat. Pellentesque sapien. Curabitur vitae diam non enim vestibulum interdum. Morbi leo mi, nonummy eget tristique non, rhoncus non leo. Nullam eget nisl. Duis risus. Nam quis nulla. Curabitur ligula sapien, pulvinar a vestibulum quis, facilisis vel sapien. Duis viverra diam non justo. Pellentesque arcu. Donec iaculis gravida nulla. Nunc auctor. Etiam quis quam.</p>
+    </div>
   </div>
 
 
@@ -22,10 +16,53 @@
 
 <script>
 export default {
-  name: "FullArticleView"
+  name: "FullArticleView",
+  data() {
+    return {
+      article: {
+        id: null,
+        title: null,
+        date: null,
+        text: null,
+        image: null
+      }
+    }
+  },
+  computed: {
+    formattedDate() {
+      return this.article.date ? this.article.date.toLocaleDateString(): '';
+    }
+  },
+  async mounted() {
+    const id = this.$route.params.id;
+    this.article = await this.getData(id);
+  },
+  methods: {
+    async getData(id) {
+      console.debug(id);
+      return {
+        id: id,
+        image: 'https://picsum.photos/seed/picsum/360/240',
+        title: 'Titulek',
+        date: new Date(),
+        text: `
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam egestas wisi a erat. Integer tempor. Pellentesque ipsum. Integer malesuada. Vestibulum fermentum tortor id mi. Aenean placerat. Pellentesque arcu. Phasellus rhoncus. In dapibus augue non sapien. Fusce dui leo, imperdiet in, aliquam sit amet, feugiat eu, orci. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Nullam lectus justo, vulputate eget mollis sed, tempor sed magna.</p>
+
+<p>Morbi leo mi, nonummy eget tristique non, rhoncus non leo. In enim a arcu imperdiet malesuada. Morbi scelerisque luctus velit. Maecenas aliquet accumsan leo. Etiam egestas wisi a erat. Donec ipsum massa, ullamcorper in, auctor et, scelerisque sed, est. Morbi leo mi, nonummy eget tristique non, rhoncus non leo. Integer malesuada. Nullam lectus justo, vulputate eget mollis sed, tempor sed magna. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? Etiam dictum tincidunt diam. Vestibulum erat nulla, ullamcorper nec, rutrum non, nonummy ac, erat. Etiam commodo dui eget wisi. Aliquam erat volutpat.</p>
+
+<p>Curabitur sagittis hendrerit ante. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Pellentesque sapien. Donec quis nibh at felis congue commodo. Duis risus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque ipsum. Mauris dictum facilisis augue. Etiam quis quam. Nullam lectus justo, vulputate eget mollis sed, tempor sed magna. Nulla quis diam.</p>
+
+<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Praesent id justo in neque elementum ultrices. Phasellus faucibus molestie nisl. Fusce dui leo, imperdiet in, aliquam sit amet, feugiat eu, orci. Maecenas aliquet accumsan leo. Duis pulvinar. Fusce nibh. Aenean placerat. Duis bibendum, lectus ut viverra rhoncus, dolor nunc faucibus libero, eget facilisis enim ipsum id lacus. Cras elementum. Duis ante orci, molestie vitae vehicula venenatis, tincidunt ac pede. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Nullam sapien sem, ornare ac, nonummy non, lobortis a enim. Etiam commodo dui eget wisi. Integer malesuada. Vestibulum fermentum tortor id mi. Quisque porta. In convallis. Donec ipsum massa, ullamcorper in, auctor et, scelerisque sed, est. Praesent vitae arcu tempor neque lacinia pretium.</p>
+
+<p>Maecenas sollicitudin. Maecenas lorem. Praesent vitae arcu tempor neque lacinia pretium. Duis ante orci, molestie vitae vehicula venenatis, tincidunt ac pede. Morbi leo mi, nonummy eget tristique non, rhoncus non leo. Integer malesuada. Etiam egestas wisi a erat. Nulla quis diam. Mauris dictum facilisis augue. In laoreet, magna id viverra tincidunt, sem odio bibendum justo, vel imperdiet sapien wisi sed libero. Pellentesque ipsum. Phasellus et lorem id felis nonummy placerat. Fusce nibh. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Pellentesque arcu.</p>
+                `
+      }
+    }
+  }
+
 }
 </script>
 
-<style >
+<style scoped>
 
 </style>
