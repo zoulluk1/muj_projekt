@@ -22,7 +22,8 @@
                   Články
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Poslední</a></li>
+                  <li><a class="dropdown-item" href="/NewArticle">Přidat nový článek</a></li>
+                  <li><a class="dropdown-item" href=# >Poslední</a></li>
                   <li><a class="dropdown-item" href="#">Nejčtenější</a></li>
 
                 </ul>
