@@ -50,6 +50,11 @@ export default {
     },
     send() {
       //this.$http.post(this.article)
+      fetch('http://localhost:3000/articles',
+          {
+            method: 'POST',
+            body: JSON.stringify(this.article)
+          })
     }
   }
 }
