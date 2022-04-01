@@ -6,8 +6,8 @@
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item ">
-        <em class="bi-send"/>
-        <i class="bi bi-activity"></i>+420 444 444 444 </li>
+
+        <i class="bi bi-phone-fill"></i>+420 444 444 444 </li>
 
       <li class="list-group-item"><span class="glyphicon" >&#x2709;</span> example@email.cz</li>
 
