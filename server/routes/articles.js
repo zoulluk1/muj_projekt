@@ -81,8 +81,7 @@ router.patch("/:id", (req, res) => {
         if (article) {
             Object.assign(article, body);
             const stm = db.prepare("UPDATE article SET image=?,title=?,date=?,text=? where id=?");
-            console.debug(article)
-            const info = stm.run(article.image,aricle.title,article.date,article.text,parseInt(id));
+            stm.run(article.image, article.title,article.date,article.text,parseInt(id));
 
 
         } else {

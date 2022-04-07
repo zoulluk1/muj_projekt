@@ -39,10 +39,12 @@ export default {
   },
   methods: {
     async getData(id) {
+      const res = await fetch(`http://localhost:3000/articles/${id}`,{method: 'GET'});
+      return res.json();
 
-      }
     }
-  }
+    }
+
 
 }
 </script>

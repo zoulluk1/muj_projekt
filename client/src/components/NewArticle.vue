@@ -9,7 +9,7 @@
         <div class="row mb-3">
           <div class="col">
             <label class="form-label">Zadejte titulek </label>
-            <input v-model="article.title" type="text" class="form-control" placeholder="Tutulek"/>
+            <input v-model="article.title" type="text" class="form-control" placeholder="Titulek"/>
           </div>
         </div>
         <div class="row mb-3">
@@ -27,7 +27,7 @@
       </div>
     </div>
     <div class="card-footer">
-      <button type="button" class="btn float-end btn-primary">Odeslat <em class="bi-check"/></button>
+      <button type="button" @click= "send" class="btn float-end btn-primary">Odeslat <em class="bi-check"/></button>
     </div>
   </div>
 </template>
@@ -38,6 +38,7 @@ export default {
   data() {
     return {
       article: {
+
         title: null,
         text: null,
         image: null
@@ -46,18 +47,28 @@ export default {
   },
   methods: {
     onImage(e) {
-      // TODO parse image
+
     },
-    send() {
-      //this.$http.post(this.article)
-      fetch('http://localhost:3000/articles',
-          {
-            method: 'POST',
-            body: JSON.stringify(this.article)
-          })
+    async send() {
+      try {
+        console.log(this.article);
+        await fetch('http://localhost:3000/articles',
+            {
+              method: 'POST',
+              body: JSON.stringify(this.article),
+              headers:{
+                'Content-type':'application/json'
+              }
+            }
+        )
+        alert("Saved!");
+      } catch (e) {
+        alert(e);
+      }
     }
   }
 }
+
 </script>
 
 <style scoped>
