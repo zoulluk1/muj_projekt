@@ -65,12 +65,11 @@ router.post("/", (req, res) => {
         title: body.title,
         text: body.text,
         date: new Date().toISOString(),
-        image: body.text
+        image: body.image
     }
     const stm = db.prepare('INSERT INTO article (image,title,date,text) values (?,?,?,?)');
-    stm.run(...Object.values(article))
-
-    console.table(article);
+    stm.run(article.image,article.title,article.date,article.text)
+    console.table(article)
     res.send(article);
 });
 router.patch("/:id", (req, res) => {
