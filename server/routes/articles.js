@@ -1,12 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var debug = require('debug')('router:articles');
-const options={
-    verbose:console.debug
-}
-const db = require('better-sqlite3')('articles.sqlite', options);
-
-
+import ArticleController from "../controller/ArticleController";
+const controller = new ArticleController();
 
 let articles = [
     {
@@ -41,25 +37,24 @@ Pellentesque arcu. Phasellus rhoncus.
     },
 ];
 router.get("/", function (req, res, next) {
-    const row = db.prepare('SELECT * FROM article').all();
+    const articles = controller.getAll();
+    res.send(articles);
 
-    console.log(row);
-    res.send(row);
 });
 router.get('/:id', (req, res, next) => {
     const id = req.params.id
     console.debug(req.params);
-    if (id) {
-        const article = articles.find((a) => a.id === Number.parseInt(id));
-        const row = db.prepare('SELECT * FROM article where id = ?').get(id);
-        res.send(row);
-    } else {
+    try{
+        const article = controller.getOne(id);
+        res.send(article);
+    }catch (e){
 
-        res.sendStatus(404);
     }
+
 });
 router.post("/", (req, res) => {
     const body = req.body;
+    console.log(body);
     const article = {
 
         title: body.title,
